@@ -29,14 +29,12 @@ const ICONS: Record<string, React.ReactNode> = {
       <rect x="16" y="14" width="12" height="8" rx="2" stroke="currentColor" strokeWidth="1.5" />
       <line x1="12" y1="8" x2="16" y2="8" stroke="currentColor" strokeWidth="1" opacity="0.4" />
       <line x1="12" y1="18" x2="16" y2="18" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-      <line x1="22" y1="12" x2="22" y2="14" stroke="currentColor" strokeWidth="1" opacity="0.4" />
     </svg>
   ),
   transform: (
     <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
       <path d="M4 24L12 14l6 4 10-14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       <circle cx="28" cy="4" r="2" fill="currentColor" />
-      <path d="M22 4h4M28 4v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
     </svg>
   ),
   product: (
@@ -50,32 +48,18 @@ const ICONS: Record<string, React.ReactNode> = {
   ),
 }
 
-const COLORS = [
-  'text-orbit-blue',
-  'text-orbit-purple',
-  'text-orbit-cyan',
-  'text-emerald-400',
-]
+const COLORS = ['text-orbit-blue', 'text-orbit-purple', 'text-orbit-cyan', 'text-emerald-400']
+const BG_GLOWS = ['from-orbit-blue/10', 'from-orbit-purple/10', 'from-orbit-cyan/10', 'from-emerald-500/10']
 
-const BG_GLOWS = [
-  'from-orbit-blue/10',
-  'from-orbit-purple/10',
-  'from-orbit-cyan/10',
-  'from-emerald-500/10',
-]
-
-interface Props {
-  t: Translations
-}
+interface Props { t: Translations }
 
 export default function Services({ t }: Props) {
   const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, amount: 0.2 })
+  const inView = useInView(ref, { once: true, amount: 0.15 })
 
   return (
     <section id="services" ref={ref} className="relative py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
         <div className="text-center mb-20">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -103,7 +87,6 @@ export default function Services({ t }: Props) {
           </motion.p>
         </div>
 
-        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {t.services.items.map((item, i) => (
             <motion.div
@@ -111,37 +94,32 @@ export default function Services({ t }: Props) {
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 + i * 0.1 }}
-              className="group relative glass rounded-3xl p-8 border border-white/5 hover:border-white/15 transition-all duration-500 overflow-hidden"
+              className="group relative glass rounded-3xl p-8 border border-white/5 hover:border-white/15 transition-all duration-500 overflow-hidden flex flex-col"
             >
-              {/* Hover glow */}
               <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl ${BG_GLOWS[i]} to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
 
-              {/* Icon */}
-              <div className={`inline-flex p-4 rounded-2xl bg-white/5 ${COLORS[i]} mb-6 group-hover:scale-110 transition-transform duration-300`}>
+              <div className={`inline-flex p-4 rounded-2xl bg-white/5 ${COLORS[i]} mb-6 group-hover:scale-110 transition-transform duration-300 self-start`}>
                 {ICONS[item.icon]}
               </div>
 
-              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-orbit-cyan transition-colors">
-                {item.title}
-              </h3>
-              <p className="text-white/60 leading-relaxed mb-6">
-                {item.description}
-              </p>
+              <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
+              <p className="text-white/60 leading-relaxed mb-5 flex-1">{item.description}</p>
 
-              {/* Tags */}
+              {/* Business result */}
+              <div className="flex items-center gap-2 py-3 px-4 rounded-xl bg-white/4 border border-white/8 mb-5">
+                <svg className="w-4 h-4 text-orbit-cyan flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+                <span className="text-sm font-semibold text-white/80">{item.result}</span>
+              </div>
+
               <div className="flex flex-wrap gap-2">
                 {item.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs font-mono px-3 py-1 rounded-full bg-white/5 text-white/40 border border-white/5 group-hover:border-white/10 transition-colors"
-                  >
+                  <span key={tag} className="text-xs font-mono px-3 py-1 rounded-full bg-white/5 text-white/40 border border-white/5 group-hover:border-white/10 transition-colors">
                     {tag}
                   </span>
                 ))}
               </div>
-
-              {/* Corner accent */}
-              <div className={`absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl ${BG_GLOWS[i]} to-transparent rounded-tl-3xl`} />
             </motion.div>
           ))}
         </div>

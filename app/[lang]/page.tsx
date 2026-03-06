@@ -5,7 +5,10 @@ import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import Stats from '@/components/Stats'
 import Services from '@/components/Services'
+import ForWhom from '@/components/ForWhom'
 import Projects from '@/components/Projects'
+import Team from '@/components/Team'
+import Pricing from '@/components/Pricing'
 import HowItWorks from '@/components/HowItWorks'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
@@ -21,16 +24,16 @@ export default function HomePage({ params }: Props) {
 
   return (
     <main className="relative min-h-screen bg-space-950 overflow-hidden">
-      {/* 3D Canvas background */}
       <OrbitalBackground />
-
-      {/* Content layers */}
       <div className="relative z-10">
         <Navigation lang={lang} t={t} />
         <Hero t={t} />
         <Stats t={t} />
         <Services t={t} />
+        <ForWhom t={t} />
         <Projects t={t} />
+        <Team t={t} />
+        <Pricing t={t} />
         <HowItWorks t={t} />
         <Contact t={t} />
         <Footer t={t} lang={lang} />

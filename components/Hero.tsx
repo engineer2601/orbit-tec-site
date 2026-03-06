@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import type { Translations } from '@/lib/i18n'
 
@@ -8,7 +8,7 @@ interface Props {
   t: Translations
 }
 
-const TYPEWRITER_PHRASES = {
+const TYPEWRITER_PHRASES: Record<string, string[]> = {
   ru: ['работает без сна', 'мыслит параллельно', 'автоматизирует всё', 'масштабируется сам'],
   en: ['never sleeps', 'thinks in parallel', 'automates everything', 'scales itself'],
   sr: ['ne spava', 'misli paralelno', 'automatizuje sve', 'skalira se samo'],
@@ -20,16 +20,14 @@ export default function Hero({ t }: Props) {
   const [deleting, setDeleting] = useState(false)
   const [blink, setBlink] = useState(true)
 
-  const langKey = t.lang as keyof typeof TYPEWRITER_PHRASES
-  const phrases = TYPEWRITER_PHRASES[langKey] ?? TYPEWRITER_PHRASES.ru
+  const phrases = TYPEWRITER_PHRASES[t.lang] ?? TYPEWRITER_PHRASES.ru
 
   useEffect(() => {
     const current = phrases[phraseIdx]
-    let timeout: NodeJS.Timeout
-
+    let timeout: ReturnType<typeof setTimeout>
     if (!deleting) {
       if (displayed.length < current.length) {
-        timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 60)
+        timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 65)
       } else {
         timeout = setTimeout(() => setDeleting(true), 2500)
       }
@@ -50,15 +48,14 @@ export default function Hero({ t }: Props) {
   }, [])
 
   const floatingCards = [
-    { icon: '🤖', label: '27 AI agents', sub: 'parallel', pos: 'top-[18%] right-[8%]', delay: 0 },
-    { icon: '⚡', label: '4 LLM models', sub: 'voting', pos: 'top-[55%] right-[5%]', delay: 0.4 },
-    { icon: '🧠', label: 'RAG + KG', sub: 'knowledge', pos: 'top-[30%] left-[4%]', delay: 0.2 },
-    { icon: '🔄', label: '553 tests', sub: '0 failures', pos: 'top-[65%] left-[3%]', delay: 0.6 },
+    { icon: '⚡', label: t.lang === 'ru' ? 'Работа 12 сотрудников' : t.lang === 'en' ? '12 employees work' : '12 zaposlenih', sub: t.lang === 'ru' ? 'один конвейер' : t.lang === 'en' ? 'one pipeline' : 'jedan konvejer', pos: 'top-[20%] right-[6%]', delay: 0 },
+    { icon: '🔄', label: t.lang === 'ru' ? '72 часа' : t.lang === 'en' ? '72 hours' : '72 sata', sub: t.lang === 'ru' ? 'вместо 6 месяцев' : t.lang === 'en' ? 'instead of 6 months' : 'umesto 6 meseci', pos: 'top-[55%] right-[4%]', delay: 0.4 },
+    { icon: '🧠', label: t.lang === 'ru' ? '4 AI-модели' : t.lang === 'en' ? '4 AI models' : '4 AI modela', sub: t.lang === 'ru' ? 'проверяют друг друга' : t.lang === 'en' ? 'cross-check each other' : 'unakrsno proveravaju', pos: 'top-[25%] left-[4%]', delay: 0.2 },
+    { icon: '✅', label: t.lang === 'ru' ? '99% автономно' : t.lang === 'en' ? '99% autonomous' : '99% autonomno', sub: t.lang === 'ru' ? 'без вашего участия' : t.lang === 'en' ? 'without your input' : 'bez vaseg ucesce', pos: 'top-[60%] left-[3%]', delay: 0.6 },
   ]
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Floating metric cards */}
       {floatingCards.map((card, i) => (
         <motion.div
           key={i}
@@ -68,8 +65,8 @@ export default function Hero({ t }: Props) {
           className={`absolute ${card.pos} hidden lg:block`}
         >
           <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 4 + i, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 4 + i, repeat: Infinity, ease: 'easeInOut', delay: i * 0.7 }}
             className="glass rounded-2xl px-4 py-3 border border-white/10 hover:border-orbit-blue/30 transition-all"
           >
             <div className="flex items-center gap-2">
@@ -83,14 +80,10 @@ export default function Hero({ t }: Props) {
         </motion.div>
       ))}
 
-      {/* Grid overlay */}
-      <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
+      <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-orbit-blue/4 blur-[130px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-orbit-purple/4 blur-[80px] pointer-events-none" />
 
-      {/* Center glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-orbit-blue/5 blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-orbit-purple/5 blur-[80px] pointer-events-none" />
-
-      {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         {/* Badge */}
         <motion.div
@@ -108,13 +101,11 @@ export default function Hero({ t }: Props) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-black leading-none mb-6"
+          className="text-5xl md:text-7xl lg:text-8xl font-black leading-none mb-4"
         >
-          <span className="block text-white">{t.hero.title1}</span>
+          <span className="block text-white/70 text-3xl md:text-4xl font-bold mb-2">{t.hero.title1}</span>
           <span className="block gradient-text">{t.hero.title2}</span>
-          <span className="block text-white/50 text-4xl md:text-5xl lg:text-6xl font-bold mt-2">
-            {t.hero.title3}
-          </span>
+          <span className="block text-white/50 text-3xl md:text-4xl font-bold mt-2">{t.hero.title3}</span>
         </motion.h1>
 
         {/* Typewriter */}
@@ -122,13 +113,10 @@ export default function Hero({ t }: Props) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}
-          className="text-2xl md:text-3xl font-mono text-orbit-cyan mb-8 h-10 flex items-center justify-center"
+          className="text-xl md:text-2xl font-mono text-orbit-cyan mb-6 h-9 flex items-center justify-center"
         >
           <span className="neon-cyan">{displayed}</span>
-          <span
-            className="inline-block w-0.5 h-7 bg-orbit-cyan ml-1 align-middle"
-            style={{ opacity: blink ? 1 : 0 }}
-          />
+          <span className="inline-block w-0.5 h-6 bg-orbit-cyan ml-1 align-middle" style={{ opacity: blink ? 1 : 0 }} />
         </motion.div>
 
         {/* Subtitle */}
@@ -136,9 +124,19 @@ export default function Hero({ t }: Props) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9 }}
-          className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-12 leading-relaxed"
+          className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-4 leading-relaxed"
         >
           {t.hero.subtitle}
+        </motion.p>
+
+        {/* Proof line */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.0 }}
+          className="text-orbit-cyan/70 text-sm font-mono mb-10"
+        >
+          ✓ {t.hero.proof}
         </motion.p>
 
         {/* CTAs */}
@@ -160,7 +158,6 @@ export default function Hero({ t }: Props) {
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-orbit-purple to-orbit-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </a>
-
           <a
             href="#projects"
             className="px-8 py-4 rounded-full glass border border-white/15 text-white font-semibold text-lg hover:border-orbit-blue/50 hover:bg-orbit-blue/10 transition-all duration-300"
@@ -173,16 +170,16 @@ export default function Hero({ t }: Props) {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 text-xs"
+          transition={{ delay: 1.6 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/25 text-xs"
         >
           <span>{t.hero.scrollHint}</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-5 h-8 rounded-full border border-white/20 flex justify-center pt-1.5"
+            className="w-5 h-8 rounded-full border border-white/15 flex justify-center pt-1.5"
           >
-            <div className="w-1 h-2 bg-white/40 rounded-full" />
+            <div className="w-1 h-2 bg-white/30 rounded-full" />
           </motion.div>
         </motion.div>
       </div>

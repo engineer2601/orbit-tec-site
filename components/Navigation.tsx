@@ -24,9 +24,9 @@ export default function Navigation({ lang, t }: Props) {
 
   const navLinks = [
     { label: t.nav.services, href: '#services' },
+    { label: t.nav.forWhom, href: '#for-whom' },
     { label: t.nav.projects, href: '#projects' },
-    { label: t.nav.howItWorks, href: '#how' },
-    { label: t.nav.contact, href: '#contact' },
+    { label: t.nav.team, href: '#team' },
   ]
 
   const switchLang = (newLang: Lang) => {
@@ -60,12 +60,12 @@ export default function Navigation({ lang, t }: Props) {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-7">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-sm text-white/60 hover:text-white transition-colors relative group"
+              className="text-sm text-white/55 hover:text-white transition-colors relative group"
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-orbit-blue to-orbit-cyan group-hover:w-full transition-all duration-300" />
@@ -73,9 +73,8 @@ export default function Navigation({ lang, t }: Props) {
           ))}
         </div>
 
-        {/* Right: lang switcher + CTA */}
+        {/* Right: lang + CTA */}
         <div className="flex items-center gap-3">
-          {/* Lang switcher */}
           <div className="hidden md:flex items-center gap-1 glass rounded-full px-2 py-1">
             {supportedLangs.map((l) => (
               <button
@@ -92,15 +91,13 @@ export default function Navigation({ lang, t }: Props) {
             ))}
           </div>
 
-          {/* CTA button */}
           <a
             href="#contact"
-            className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-orbit-blue to-orbit-purple text-white text-sm font-semibold hover:shadow-glow-blue transition-all duration-300 hover:scale-105"
+            className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-orbit-blue to-orbit-purple text-white text-sm font-bold hover:shadow-glow-blue transition-all duration-300 hover:scale-105"
           >
             {t.nav.contact}
           </a>
 
-          {/* Mobile burger */}
           <button
             className="md:hidden p-2 text-white/70"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -115,7 +112,6 @@ export default function Navigation({ lang, t }: Props) {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -135,14 +131,15 @@ export default function Navigation({ lang, t }: Props) {
                   {link.label}
                 </a>
               ))}
+              <a href="#contact" onClick={() => setMobileOpen(false)} className="text-orbit-cyan font-semibold py-1">
+                {t.nav.contact}
+              </a>
               <div className="flex items-center gap-2 pt-2 border-t border-white/10">
                 {supportedLangs.map((l) => (
                   <button
                     key={l}
                     onClick={() => { switchLang(l); setMobileOpen(false) }}
-                    className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      l === lang ? 'bg-orbit-blue text-white' : 'text-white/50'
-                    }`}
+                    className={`px-3 py-1 rounded-full text-xs font-semibold ${l === lang ? 'bg-orbit-blue text-white' : 'text-white/50'}`}
                   >
                     {langLabels[l]}
                   </button>

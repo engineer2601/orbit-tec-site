@@ -156,12 +156,12 @@ export const en = {
     founder: {
       name: 'Vladimir Kharlashko',
       role: 'Founder · CTO · AI Architect',
-      bio: '15+ years as enterprise CTO: PGK ($1.5B revenue, 150+ IT initiatives/year, direct report to CEO), PARMA Technology (650 people, P&L ₽500M+/year), Raiffeisen Bank — VP Engineering (80+ parallel R&D projects, AI and blockchain in production). Architect of PARMA\'s corporate AI strategy: ~50% average labor cost savings across 20+ specializations, 500+ professionals. Now building autonomous AI systems for business from scratch. Based in Belgrade — serving EU and global clients.',
+      bio: '15+ years as enterprise CTO: PGK ($1.5B revenue, 150+ IT initiatives/year, direct report to CEO), PARMA Technology (650 people, P&L ₽500M+/year), Raiffeisen Bank — VP Engineering (80+ parallel R&D projects, AI and blockchain in production). Architect of PARMA\'s corporate AI strategy: ~50% average labor cost savings across 20+ specializations, 500+ professionals. Now building autonomous AI systems for business from scratch.',
       facts: [
         '15 years enterprise CTO: PGK ($1.5B), Raiffeisen, Moscow Exchange',
         'AI transformation of 500+ specialists: ~50% labor cost savings',
         'Architect of 27-agent pipeline, 11 microservices, 553 tests',
-        'Belgrade, Serbia — EU & Remote',
+        'Expert: Claude, GPT-4o, Gemini 2.5 Pro, DeepSeek',
       ],
     },
   },

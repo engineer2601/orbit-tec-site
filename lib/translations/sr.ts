@@ -156,12 +156,12 @@ export const sr = {
     founder: {
       name: 'Vladimir Kharlashko',
       role: 'Osnivac · CTO · AI arhitekta',
-      bio: '15+ godina kao enterprise CTO: PGK (prihod $1.5B, 150+ IT inicijativa/godišnje, direktno podredjen CEO), PARMA (650 zaposlenih, P&L ₽500M+/god), Raiffeisen Bank — VP Engineering (80+ paralelnih R&D projekata, AI i blockchain u produkciji). Arhitekta korporativne AI strategije PARMA: prosecna ustedevina ~50% radnih resursa u 20+ specijalizacija, 500+ strucnjaka. Sada gradi autonomne AI sisteme za biznis od nule. Zasnovan u Beogradu — radim sa EU i globalnim klijentima.',
+      bio: '15+ godina kao enterprise CTO: PGK (prihod $1.5B, 150+ IT inicijativa/godišnje, direktno podredjen CEO), PARMA (650 zaposlenih, P&L ₽500M+/god), Raiffeisen Bank — VP Engineering (80+ paralelnih R&D projekata, AI i blockchain u produkciji). Arhitekta korporativne AI strategije PARMA: prosecna ustedevina ~50% radnih resursa u 20+ specijalizacija, 500+ strucnjaka. Sada gradi autonomne AI sisteme za biznis od nule.',
       facts: [
         '15 godina enterprise CTO: PGK ($1.5B), Raiffeisen, Moskovska berza',
         'AI transformacija 500+ strucnjaka: ~50% ustedevina radnih resursa',
         'Arhitekta 27-agentnog konvejera, 11 mikroservisa, 553 testa',
-        'Beograd, Srbija — EU i Remote',
+        'Ekspert: Claude, GPT-4o, Gemini 2.5 Pro, DeepSeek',
       ],
     },
   },

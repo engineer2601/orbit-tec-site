@@ -35,33 +35,33 @@ export const en = {
     items: [
       {
         icon: 'agents',
-        title: 'Multi-agent pipelines',
+        title: 'Digital Workforce',
         description:
-          'Dozens of AI agents work in parallel: one researches, one writes, one validates, one publishes. The result — 24/7 without a single human in the loop. Your routine processes cease to exist.',
-        result: 'Up to 40% payroll reduction on automated processes',
+          'Dozens of AI agents work like a coordinated department: research, create, validate, publish — in parallel, around the clock. What takes a team of 10 a week is done in hours. No payroll, no sick days, no human error.',
+        result: 'Up to 40% reduction in operational costs on automated processes',
         tags: ['FastAPI', 'Redis Streams', 'PostgreSQL', 'Claude / GPT-4o'],
       },
       {
         icon: 'rag',
-        title: 'Corporate knowledge base',
+        title: 'AI Brain of the Company',
         description:
-          'AI that knows everything about your company: documents, regulations, correspondence, client data. A new employee adapts in a day. A client gets an answer in seconds instead of hours.',
-        result: 'Client response time from hours to seconds',
-        tags: ['ChromaDB', 'Knowledge Graph', 'MCP Server', 'REST API'],
+          'All expertise, data and knowledge of the company — a single intelligence layer that sees hidden connections between projects, departments and documents. Not a reference book — an organ of thinking. Connects to any source: files, email, CRM, GitHub, cloud storage.',
+        result: 'Decisions that took hours of consultation — in seconds',
+        tags: ['ChromaDB / Qdrant', 'Knowledge Graph', 'MCP Server', '7 connectors'],
       },
       {
         icon: 'transform',
-        title: 'AI business transformation',
+        title: 'AI Operations Orchestration',
         description:
-          'Not just plugging in ChatGPT. We analyze your processes, find where AI gives 5-10x speed, build a roadmap and implement it. Measurable ROI within 3 months.',
-        result: 'Return on AI investment in 3-6 months',
-        tags: ['Process Audit', 'ROI Map', 'Custom LLM', 'Integrations'],
+          'A unified command center for your entire AI ecosystem. We coordinate agents, control quality, and distribute tasks in real time. You see what every system is doing — and manage your AI team as confidently as you manage your business.',
+        result: 'Measurable ROI in 90 days. Average labor cost savings ~50%',
+        tags: ['Process Audit', 'ROI Map', 'Mission Control', 'Custom LLM'],
       },
       {
         icon: 'product',
-        title: 'AI products from scratch',
+        title: 'AI Products in Days',
         description:
-          'From business idea to mobile app in the store. Our AI pipeline generates, validates and publishes code autonomously. Development speed 10x faster than a classic team.',
+          'From business idea to a working product on the market — in days, not months. Our AI pipeline designs, generates and tests code autonomously. Test hypotheses at startup speed with enterprise-grade reliability.',
         result: 'Prototype in 72 hours, MVP in 2 weeks',
         tags: ['Flutter', 'Next.js', 'Python', 'App Store / Play Store'],
       },

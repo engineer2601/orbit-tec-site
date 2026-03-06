@@ -35,33 +35,33 @@ export const sr = {
     items: [
       {
         icon: 'agents',
-        title: 'Viseagentni konvejeri',
+        title: 'Digitalna radna snaga',
         description:
-          'Desetine AI agenata rade paralelno: jedan istrazuje, drugi pise, treci proverava, cetvrti objavljuje. Rezultat — 24/7 bez ijednog coveka u petlji. Vasi rutinski procesi prestaju da postoje.',
-        result: 'Smanjenje troskova plate do 40% na automatizovanim procesima',
+          'Desetine AI agenata rade kao uskladjen odeljenje: istrazuju, kreiraju, proveravaju, objavljuju — paralelno i non-stop. Ono sto timu od 10 ljudi traje nedelju, zavrsava se za sate. Bez plata, bolovanja i ljudske greske.',
+        result: 'Smanjenje operativnih troskova do 40% na automatizovanim procesima',
         tags: ['FastAPI', 'Redis Streams', 'PostgreSQL', 'Claude / GPT-4o'],
       },
       {
         icon: 'rag',
-        title: 'Korporativna baza znanja',
+        title: 'AI mozak kompanije',
         description:
-          'AI koji zna sve o vasoj kompaniji: dokumenti, propisi, prepiska, podaci klijenata. Novi zaposleni se adaptira za dan. Klijent dobija odgovor za sekunde umesto sati.',
-        result: 'Vreme odgovora klijentima: od sati do sekundi',
-        tags: ['ChromaDB', 'Graf znanja', 'MCP Server', 'REST API'],
+          'Svo iskustvo, podaci i znanje kompanije — jedan inteligentni sloj koji vidi skrivene veze izmedju projekata, odeljenja i dokumenata. Nije referentna knjiga — organ misljenja. Povezuje se sa bilo kojim izvorom: fajlovi, mejl, CRM, GitHub, cloud.',
+        result: 'Odluke koje su zahtevale sate konsultacija — za sekunde',
+        tags: ['ChromaDB / Qdrant', 'Graf znanja', 'MCP Server', '7 konektora'],
       },
       {
         icon: 'transform',
-        title: 'AI transformacija biznisa',
+        title: 'Orkestracija AI operacija',
         description:
-          'Nije samo dodavanje ChatGPT-a. Analiziramo vase procese, nalazimo gde AI daje 5-10x brzinu, gradimo plan i implementiramo. Merljiv ROI za 3 meseca.',
-        result: 'Povrat investicije u AI za 3-6 meseci',
-        tags: ['Audit procesa', 'ROI mapa', 'Custom LLM', 'Integracije'],
+          'Jedinstven komandni centar za ceo AI ekosistem biznisa. Koordiniramo agente, kontrolisemo kvalitet, rasporedujemo zadatke u realnom vremenu. Vidite sta svaki sistem radi — i upravljate AI timom isto onako pouzdano kao sto upravljate kompanijom.',
+        result: 'Merljivi ROI za 90 dana. Prosecna ustedevina radnih resursa ~50%',
+        tags: ['Audit procesa', 'ROI mapa', 'Mission Control', 'Custom LLM'],
       },
       {
         icon: 'product',
-        title: 'AI proizvodi od nule',
+        title: 'AI proizvodi za dane',
         description:
-          'Od poslovne ideje do mobilne aplikacije u prodavnici. Nas AI konvejer generise, proverava i objavljuje kod autonomno. Brzina razvoja 10x veca od klasicnog tima.',
+          'Od poslovne ideje do gotovog proizvoda na trzistu — za dane, a ne mesece. Nas AI konvejer projektuje, generise i testira kod autonomno. Testirate hipoteze brzinom startapa uz pouzdanost enterprise tima.',
         result: 'Prototip za 72 sata, MVP za 2 nedelje',
         tags: ['Flutter', 'Next.js', 'Python', 'App Store / Play Store'],
       },
